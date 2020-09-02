@@ -5,7 +5,7 @@ resource "aws_launch_template" "core_launch_template" {
   ebs_optimized           = var.ebs_optimized
   user_data               = base64encode(data.template_file.asgsignal_lt_userdata.rendered)
   iam_instance_profile {
-      arn = aws_iam_role.ec2instance_iamrole.arn
+      arn = aws_iam_instance_profile.ec2role.arn
 	}
   monitoring {
     enabled = var.instance_detail_monitoring
