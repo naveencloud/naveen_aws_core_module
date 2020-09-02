@@ -24,7 +24,7 @@ resource "aws_default_network_acl" "nacl" {
   subnet_ids = concat(
     aws_subnet.subnet_public.*.id,
     aws_subnet.subnet_private_app.*.id,
-    aws_subnet.subnet_private_data.*.id
+    aws_subnet.subnet_private_db.*.id
   )
 
   egress {

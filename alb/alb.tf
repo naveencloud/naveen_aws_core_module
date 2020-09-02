@@ -15,7 +15,7 @@ resource "aws_lb" "core_alb" {
   name = "${var.alb_name}-lb"
   internal = var.lb_internal
   subnets = var.subnetid
-  security_groups = [aws_security_group.lb_security_group.0.id]
+  security_groups = [aws_security_group.lb_security_group.id]
   load_balancer_type = "application"
   idle_timeout = var.idle_timeout
   tags = {
