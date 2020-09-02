@@ -3,7 +3,7 @@ data "template_file" "asgsignal_lt_userdata" {
 
   vars {
     cf_StackName      = var.cf_StackName
-    aws_Region        = var.region
+    region            = var.region
 	cf_resource_id    = var.cf_resource_id
   }
 }
