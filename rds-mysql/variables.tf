@@ -60,3 +60,10 @@ variable "environment" {
   description = "Environment tag details"
 }
 
+variable "db_username" {
+  description = "DB User Name"
+}
+
+variable "db_password" {
+  description = "DB Password"
+}

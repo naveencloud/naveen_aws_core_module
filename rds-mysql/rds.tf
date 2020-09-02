@@ -24,6 +24,8 @@ resource "aws_db_instance" "core_rds_db" {
   instance_class            = var.rds_instance_class
   name                      = var.rds_name
   identifier                = var.rds_name
+  username                  = var.db_username
+  password                  = var.db_password
   parameter_group_name      = aws_db_parameter_group.core_rds_db_pg.id
   vpc_security_group_ids    = [ aws_security_group.core_rds_security_group.id ]
   skip_final_snapshot       = "true"
@@ -54,6 +56,5 @@ resource "aws_security_group" "core_rds_security_group" {
   tags = {
     Name = "${var.rds_name}-rds-sg"
     Environment = var.environment
-    Unitname = var.unit_name
   }
 }

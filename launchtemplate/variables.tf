@@ -12,6 +12,10 @@ variable "core_lt_ami" {
   description = "Core launch configuration AMI"
 }
 
+variable "vpc_id" {
+  description = "VPC ID Details"
+}
+
 variable "region" {
   description = "Region of AWS Infrastructure deployed"
 }
@@ -26,11 +30,6 @@ variable "cf_resource_id" {
 
 variable "instance_detail_monitoring" {
   description = "EC2 Instance monitoring option Detail or standard"
-}
-
-variable "lt_security_group_ids" {
-  description = "Launch configuration security group ids"
-  type        = "list"
 }
 
 variable "resource_to_tag" {

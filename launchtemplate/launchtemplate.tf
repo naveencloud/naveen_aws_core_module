@@ -10,7 +10,7 @@ resource "aws_launch_template" "core_launch_template" {
   monitoring {
     enabled = var.instance_detail_monitoring
   }
-  vpc_security_group_ids  = [var.lt_security_group_ids]
+  vpc_security_group_ids  = [aws_security_group.core_lt_security_group.id]
   tag_specifications {
     resource_type = var.resource_to_tag
     tags {
@@ -20,5 +20,15 @@ resource "aws_launch_template" "core_launch_template" {
 	}
   lifecycle {
     create_before_destroy = true
+  }
+}
+
+resource "aws_security_group" "core_lt_security_group" {
+  name        = "${var.core_lt_name}-sg"
+  description = "${var.core_lt_name}-rds-sg"
+  vpc_id      = var.vpc_id
+  tags = {
+    Name = "${var.core_lt_name}-rds-sg"
+    Environment = var.environment
   }
 }
