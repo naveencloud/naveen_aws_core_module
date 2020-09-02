@@ -31,7 +31,7 @@ resource "aws_lb_target_group" "alb_core_tg" {
   name = "${var.alb_name}-tg"
   port = var.application_service_port
   protocol = "HTTP"
-  target_type = "ip"
+  target_type = "instance"
   deregistration_delay = var.deregistration_delay
   vpc_id = var.vpc_id
 
