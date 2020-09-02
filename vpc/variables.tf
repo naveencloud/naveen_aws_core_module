@@ -16,7 +16,7 @@ variable "environment" {
 
 variable "subnets_cidrs" {
   description = "Subnet list with IP ranges"
-  type        = "map"
+  type        = map(string)
 }
 
 variable "availability_zones" {
@@ -34,7 +34,7 @@ variable "vpc_flow_log_group_name" {
 
 variable "sub_services_names" {
   description = "List with the names of the sub-services"
-  type        = "map"
+  type        = map(string)
 }
 
 variable "common_tags" {

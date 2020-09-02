@@ -27,5 +27,5 @@ resource "aws_nat_gateway" "core_nat" {
   count         = length(var.availability_zones)
   allocation_id = aws_eip.nat_eip.*.id[count.index]
   subnet_id     = aws_subnet.subnet_public.*.id[count.index]
-  depends_on    = ["aws_internet_gateway.core_igw"]
+  depends_on    = [aws_internet_gateway.core_igw]
 }
