@@ -54,11 +54,11 @@ resource "aws_lb_target_group" "alb_core_tg" {
 
 # Target Group Listner Rule
 resource "aws_lb_listener" "lb_listener_rule" {
-  load_balancer_arn = aws_lb.core_alb.0.arn
+  load_balancer_arn = aws_lb.core_alb.arn
   port = var.lb_tg_port
   protocol = var.lb_tg_protocol
   default_action {
-    target_group_arn = aws_lb_target_group.alb_core_tg.0.arn
+    target_group_arn = aws_lb_target_group.alb_core_tg.arn
     type = "forward"
   }
 }
