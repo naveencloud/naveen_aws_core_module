@@ -21,7 +21,7 @@ variable "subnets_cidrs" {
 
 variable "availability_zones" {
   description = "Availability zones that are going to be used for the subnets"
-  type        = "list"
+  type        = list(string)
 }
 
 variable "vpc_name" {
