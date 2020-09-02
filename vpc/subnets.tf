@@ -1,7 +1,7 @@
 resource "aws_subnet" "subnet_public" {
   count             = length(var.availability_zones)
   vpc_id            = aws_vpc.core_vpc.id
-  cidr_block        = element(var.subnets_cidrs["public"], count.index)
+  cidr_block        = element(var.public, count.index)
   availability_zone = element(var.availability_zones, count.index)
 
   tags = merge(
@@ -15,7 +15,7 @@ resource "aws_subnet" "subnet_public" {
 resource "aws_subnet" "subnet_private_app" {
   count             = length(var.availability_zones)
   vpc_id            = aws_vpc.core_vpc.id
-  cidr_block        = element(var.subnets_cidrs["private_app"], count.index)
+  cidr_block        = element(var.private_app, count.index)
   availability_zone = element(var.availability_zones, count.index)
 
   tags = merge( 
@@ -29,7 +29,7 @@ resource "aws_subnet" "subnet_private_app" {
 resource "aws_subnet" "subnet_private_db" {
   count             = length(var.availability_zones)
   vpc_id            = aws_vpc.core_vpc.id
-  cidr_block        = element(var.subnets_cidrs["private_db"], count.index)
+  cidr_block        = element(var.private_db, count.index)
   availability_zone = element(var.availability_zones, count.index)
 
   tags = merge( 

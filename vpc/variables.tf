@@ -14,9 +14,19 @@ variable "environment" {
   description = "TUI environment"
 }
 
-variable "subnets_cidrs" {
+variable "public" {
   description = "Subnet list with IP ranges"
-  type        = map(string)
+  type        = list(string)
+}
+
+variable "private_app" {
+  description = "Subnet list with IP ranges"
+  type        = list(string)
+}
+
+variable "private_db" {
+  description = "Subnet list with IP ranges"
+  type        = list(string)
 }
 
 variable "availability_zones" {
