@@ -1,7 +1,7 @@
 # Below resource to create RDS MYSQL
 
 resource "aws_db_parameter_group" "core_rds_db_pg" {
-  name   = "${var.rds_name}-mysql"
+  name   = "${var.rds_name}-rds-mysql"
   family = var.rds_parameter_group_family
 
   parameter {
@@ -50,7 +50,7 @@ resource "aws_db_subnet_group" "core_rds_subnetgroup" {
 
 #Security Group for RDS DB
 resource "aws_security_group" "core_rds_security_group" {
-  name        = "${var.rds_name}-sg"
+  name        = "${var.rds_name}-rds-sg"
   description = "${var.rds_name}-rds-sg"
   vpc_id      = var.vpc_id
   tags = {
