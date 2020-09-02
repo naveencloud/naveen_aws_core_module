@@ -35,10 +35,6 @@ variable "rds_instance_class" {
   description = "RDS Instance class"
 }
 
-variable "rds_snapshot_identifier" {
-  description = "RDS Snapshot identifier to create DB instance"
-}
-
 variable "rds_backup_retention_days" {
   description = "The amount of time in days that the database snapshots will be retained for"
   default     = 7
