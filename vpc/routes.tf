@@ -43,7 +43,7 @@ resource "aws_route_table" "private_data" {
   }
 
   tags = merge(
-    map("Name", "${var.environment}-rtb-${var.sub_services_names["private_data"]}-az${count.index + 1}"),
+    map("Name", "${var.environment}-rtb-${var.sub_services_names["private_db"]}-az${count.index + 1}"),
     map("VPC", aws_vpc.core_vpc.tags.Name),
     var.common_tags,
     map("Classification", "private")
