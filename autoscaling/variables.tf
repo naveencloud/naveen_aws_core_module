@@ -48,7 +48,6 @@ variable "VPCZoneIdentifier2" {
 
 variable "enabled_metrics" {
   description = "List of Metrics enabled in ASG"
-  type = list(string)
 }
 
 variable "OnDemandAllocationStrategy" {
