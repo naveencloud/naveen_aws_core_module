@@ -16,7 +16,7 @@ variable "environment" {
 
 variable "subnets_cidrs" {
   description = "Subnet list with IP ranges"
-  type        = "map"
+  type        = map(string)
 }
 
 variable "availability_zones" {
