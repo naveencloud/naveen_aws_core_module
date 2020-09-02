@@ -8,7 +8,7 @@ resource "aws_iam_role" "ec2instance_iamrole" {
 
 resource "aws_iam_role_policy" "ec2instance_iamrolepolicy" {
   name = "${var.ec2_name}-iamrole-policy"
-  role = aws_iam_role.ec2instance_iamrole.arn
+  role = aws_iam_role.ec2instance_iamrole.name
   policy = templatefile("${path.module}/files/iamrolepolicy.json", {})
 }
 resource "aws_iam_instance_profile" "ec2role" {

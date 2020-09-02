@@ -51,26 +51,6 @@
             "Key": "Environment",
             "Value": "${Environment}",
             "PropagateAtLaunch": true
-          },
-          {
-            "Key": "Application",
-            "Value": "${Application}",
-            "PropagateAtLaunch": true
-          },
-          {
-            "Key": "ApplicationCategory",
-            "Value": "${ApplicationCategory}",
-            "PropagateAtLaunch": true
-          },
-          {
-            "Key": "Brand",
-            "Value": "${Brand}",
-            "PropagateAtLaunch": true
-          },
-          {
-            "Key": "Project",
-            "Value": "${Project}",
-            "PropagateAtLaunch": true
           }
         ]
       },
