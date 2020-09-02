@@ -1,2 +1,1 @@
-# sub_services_names
-sub_services_names
+# AWS Core Module repo has the resource terraform code

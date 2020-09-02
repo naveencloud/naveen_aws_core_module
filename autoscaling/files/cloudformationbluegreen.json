@@ -1,0 +1,106 @@
+
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "${cnf_asg_resourcename}": {
+      "Type": "AWS::AutoScaling::AutoScalingGroup",
+      "Properties": {
+	    "AutoScalingGroupName": "${AutoScalingGroupName}",
+		"MinSize": "${MinSize}",
+		"MaxSize": "${MaxSize}",
+		"DesiredCapacity": "${DesiredCapacity}",
+        "HealthCheckType": "${HealthCheckType}",
+        "HealthCheckGracePeriod": "${HealthCheckGracePeriod}",
+		"Cooldown": "${Cooldown}",
+		"TargetGroupARNs": ["${TargetGroupARN}"],
+        "TerminationPolicies": ["${TerminationPolicies}"],
+		"VPCZoneIdentifier": ["${VPCZoneIdentifier1}", "${VPCZoneIdentifier2}"],
+        "MetricsCollection": [
+          {
+            "Granularity": "1Minute",
+            "Metrics": ["${Metrics}"]
+          }
+        ],
+		"MixedInstancesPolicy": {
+          "InstancesDistribution" : {
+             "OnDemandAllocationStrategy" : "${OnDemandAllocationStrategy}",
+             "OnDemandBaseCapacity" : "${OnDemandBaseCapacity}",
+             "OnDemandPercentageAboveBaseCapacity" : "${OnDemandPercentageAboveBaseCapacity}",
+             "SpotAllocationStrategy" :"${SpotAllocationStrategy}",
+             "SpotInstancePools" : "${SpotInstancePools}",
+             "SpotMaxPrice" : "${SpotMaxPrice}"
+            },
+          "LaunchTemplate": {
+		    "LaunchTemplateSpecification": {
+              "LaunchTemplateId" : "${LaunchTemplateId}",
+              "Version" : "${Version}"
+            },
+			"Overrides": [ 
+			{ "InstanceType" : "${SpotInstanceType1}" }
+			]
+          }
+	    },
+        "Tags": [
+          {
+		  
+            "Key": "Name",
+            "Value": "${ec2_name}",
+            "PropagateAtLaunch": true
+          },
+          {
+            "Key": "Environment",
+            "Value": "${Environment}",
+            "PropagateAtLaunch": true
+          },
+          {
+            "Key": "Application",
+            "Value": "${Application}",
+            "PropagateAtLaunch": true
+          },
+          {
+            "Key": "ApplicationCategory",
+            "Value": "${ApplicationCategory}",
+            "PropagateAtLaunch": true
+          },
+          {
+            "Key": "Brand",
+            "Value": "${Brand}",
+            "PropagateAtLaunch": true
+          },
+          {
+            "Key": "Project",
+            "Value": "${Project}",
+            "PropagateAtLaunch": true
+          }
+        ]
+      },
+      "CreationPolicy": {
+	    "AutoScalingCreationPolicy" : {
+          "MinSuccessfulInstancesPercent" : "70"
+        },
+        "ResourceSignal": {
+          "Count": 1,
+          "Timeout": "PT10M"
+        }
+      },
+      "UpdatePolicy": {
+        "AutoScalingRollingUpdate": {
+          "MaxBatchSize": "1",
+          "MinInstancesInService": "1",
+		  "MinSuccessfulInstancesPercent": "70",
+		  "WaitOnResourceSignals": "true",
+          "PauseTime": "PT10M",
+		  "SuspendProcesses": ["AlarmNotification"]
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "AsgName": {
+      "Description": "The name of the auto scaling group",
+      "Value": {
+        "Ref": "${cnf_asg_resourcename}"
+      }
+    }
+  }
+}
