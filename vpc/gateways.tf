@@ -13,7 +13,7 @@ resource "aws_internet_gateway" "core_igw" {
 resource "aws_eip" "nat_eip" {
   count = length(var.availability_zones)
   vpc   = true
-  depends_on = ["aws_internet_gateway.core_igw"]
+  depends_on = [aws_internet_gateway.core_igw]
 
   tags = merge( 
     map("Name", "${var.environment}-eip-nat-az${count.index + 1}"),
