@@ -64,7 +64,7 @@
         },
         "ResourceSignal": {
           "Count": 1,
-          "Timeout": "PT10M"
+          "Timeout": "PT2M"
         }
       },
       "UpdatePolicy": {
@@ -73,7 +73,7 @@
           "MinInstancesInService": "0",
 		  "MinSuccessfulInstancesPercent": "0",
 		  "WaitOnResourceSignals": "true",
-          "PauseTime": "PT5M",
+          "PauseTime": "PT2M",
 		  "SuspendProcesses": ["AlarmNotification"]
         }
       }
