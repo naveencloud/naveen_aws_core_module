@@ -56,7 +56,7 @@
       },
       "CreationPolicy": {
 	    "AutoScalingCreationPolicy" : {
-          "MinSuccessfulInstancesPercent" : "0"
+          "MinSuccessfulInstancesPercent" : "1"
         },
         "ResourceSignal": {
           "Count": 1,
@@ -66,8 +66,8 @@
       "UpdatePolicy": {
         "AutoScalingRollingUpdate": {
           "MaxBatchSize": "1",
-          "MinInstancesInService": "0",
-		  "MinSuccessfulInstancesPercent": "0",
+          "MinInstancesInService": "1",
+		  "MinSuccessfulInstancesPercent": "10",
 		  "WaitOnResourceSignals": "true",
           "PauseTime": "PT10M",
 		  "SuspendProcesses": ["AlarmNotification"]
