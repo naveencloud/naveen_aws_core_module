@@ -24,8 +24,8 @@ resource "aws_launch_template" "core_launch_template" {
 }
 
 resource "aws_security_group" "core_lt_security_group" {
-  name        = "${var.core_lt_name}-sg"
-  description = "${var.core_lt_name}-rds-sg"
+  name        = "${var.core_lt_name}-ec2-sg"
+  description = "${var.core_lt_name}-ec2-sg"
   vpc_id      = var.vpc_id
   tags = {
     Name = "${var.core_lt_name}-rds-sg"
