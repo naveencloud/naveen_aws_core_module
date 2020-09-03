@@ -38,7 +38,7 @@ resource "aws_db_instance" "core_rds_db" {
     Environment = var.environment
   }
  lifecycle {
-    prevent_destroy = false
+    prevent_destroy = true
   }
 }
 
