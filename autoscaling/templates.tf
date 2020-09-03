@@ -23,6 +23,10 @@ data "template_file" "core_asg_cfn" {
     LaunchTemplateId         = var.launch_template_id
     Version                  = var.launch_template_version
     SpotInstanceType1 = var.spot_instance_type1
+    SpotInstanceType2 = var.spot_instance_type2
+    SpotInstanceType3 = var.spot_instance_type3
+    SpotInstanceType4 = var.spot_instance_type4
+    SpotInstanceType5 = var.spot_instance_type5
     ec2_name      = var.ec2_name
     Environment   = var.environment
     cnf_asg_resourcename = var.cnf_asg_resourcename

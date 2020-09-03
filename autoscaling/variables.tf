@@ -85,6 +85,19 @@ variable "spot_allocation_strategy" {
 variable "spot_instance_type1" {
   description = "Spot instance1 type"
 }
+variable "spot_instance_type2" {
+  description = "Spot instance2 type"
+}
+
+variable "spot_instance_type3" {
+  description = "Spot instance3 type"
+}
+variable "spot_instance_type4" {
+  description = "Spot instance4 type"
+}
+variable "spot_instance_type5" {
+  description = "Spot instance5 type"
+}
 
 variable "ec2_name" {
   description = "ASG EC2 Instance Name"

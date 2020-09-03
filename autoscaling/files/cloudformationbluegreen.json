@@ -35,9 +35,13 @@
               "LaunchTemplateId" : "${LaunchTemplateId}",
               "Version" : "${Version}"
             },
-			"Overrides": [ 
-			{ "InstanceType" : "${SpotInstanceType1}" }
-			]
+            "Overrides": [
+              { "InstanceType" : "${SpotInstanceType1}" },
+              { "InstanceType" : "${SpotInstanceType2}" },
+              { "InstanceType" : "${SpotInstanceType3}" },
+              { "InstanceType" : "${SpotInstanceType4}" },
+              { "InstanceType" : "${SpotInstanceType5}" }
+            ]
           }
 	    },
         "Tags": [
