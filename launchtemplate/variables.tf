@@ -8,6 +8,10 @@ variable "ec2_name" {
   description = "EC2 name tag"
 }
 
+variable "key_name" {
+  description = "EC2 keypair name"
+}
+
 variable "core_lt_ami" {
   description = "Core launch configuration AMI"
 }

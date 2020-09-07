@@ -3,6 +3,7 @@ resource "aws_launch_template" "core_launch_template" {
   name_prefix             = var.core_lt_name
   image_id                = var.core_lt_ami
   ebs_optimized           = var.ebs_optimized
+  key_name                = var.key_name
   user_data               = base64encode(data.template_file.asgsignal_lt_userdata.rendered)
   iam_instance_profile {
       arn = aws_iam_instance_profile.ec2role.arn
